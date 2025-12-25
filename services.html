@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services | Vanitha Bridal Makeover</title>
+  <meta name="description" content="Explore bridal, groom, bridesmaid and special occasion makeup services by Vanitha Bridal Makeover.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+</head>
+<style>
+  /* Disable pre-anim hiding on services page */
+.pre-anim {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* WhatsApp Catalogue Click */
+.whatsapp-catalog {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Black + Gold CTA */
+.catalog-cta {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 0.95rem;
+
+  background: #0b0b0b;
+  color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.45);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover Luxury Effect */
+.whatsapp-catalog:hover .catalog-cta {
+  background: linear-gradient(135deg,#0b0b0b,#151515,#1f1f1f);
+  color: #f5d77a;
+  box-shadow: 0 14px 40px rgba(212,175,55,0.28);
+  transform: translateY(-2px) scale(1.03);
+}
+
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.catalog-cta {
+  margin-top: auto;   /* MAGIC LINE */
+}
+
+/* Force simple 4 / 8 split without changing HTML */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex: 1 !important;
+}
+
+/* Logo = 4 parts */
+.brand img {
+  flex: 0 0 33.333% !important;
+  max-width: 70px !important;
+}
+
+/* Text = 8 parts */
+.brand > div {
+  flex: 0 0 66.666% !important;
+}
+
+
+/* ===== LUXURY BOOTSTRAP NAV ===== */
+.luxury-nav .nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  padding: 6px 0;
+}
+
+.luxury-nav .nav-link:hover {
+  color: #d4af37;
+}
+
+/* Active page */
+.luxury-nav .nav-link.active {
+  color: #f5d77a;
+  font-weight: 600;
+  position: relative;
+}
+
+.luxury-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: #d4af37;
+}
+
+/* Contact pill */
+.luxury-nav .nav-contact {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.45);
+  color: #d4af37 !important;
+}
+
+/* Toggler styling */
+.navbar-toggler {
+  border: 1px solid rgba(212,175,55,0.5);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+</style>
+
+<body>
+
+<!-- HEADER (SAME AS HOME) -->
+<header class="d-flex justify-content-between align-items-center">
+  <div class="brand">
+    <img src="images/logo.png" alt="Vanitha Logo">
+    <div>
+      <h1>Vanitha Bridal Makeover</h1>
+      <p class="muted-sm">383, Mettupalayam Rd · Coimbatore · +91 72000 51644</p>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg luxury-nav">
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNav"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link nav-contact" href="contact-us.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- HERO -->
+<section class="hero container pre-anim">
+  <h2 class="title">Our Professional Makeup Services</h2>
+  <p class="small-muted d-lg-none">Coimbatore · +91 72000 51644</p>
+  <p class="sub">
+    From bridal elegance to special occasions, every look is thoughtfully designed
+    to enhance your natural beauty and photograph flawlessly.
+  </p>
+</section>
+
+<!-- SERVICES DETAILS -->
+<section class="container mt-4">
+  <div class="row g-4">
+
+    <!-- Bridal -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Bridal Makeup</h3>
+        <p class="small-muted">
+          Our bridal makeup is customized to your skin type, outfit, jewellery and
+          wedding rituals, ensuring a timeless and radiant look.
+        </p>
+        <ul class="small-muted">
+          <li>Normal, HD, HD Premium, Soft Glam, Ultra HD & Airbrush options</li>
+          <li>Long-lasting, sweat & water resistant finish</li>
+          <li>Skin prep, hair styling & saree draping included</li>
+          <li>Lens, lashes & hair extensions provided</li>
+        </ul>
+      </div>
+    </div>
+
+<!-- Bride-to-Be Makeup -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Bride-to-Be Makeup</h3>
+        <p class="small-muted">
+          Our bride-to-be makeup is designed for pre-wedding functions, giving you a
+          flawless, camera-ready glow while maintaining a natural and elegant finish.
+        </p>
+        <ul class="small-muted">
+          <li>Perfect for engagement, reception & pre-wedding events</li>
+          <li>HD and soft glam makeup options</li>
+          <li>Long-lasting, photo-friendly finish</li>
+          <li>Hair styling and light draping included</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Bridesmaid -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Bridesmaid Makeup</h3>
+        <p class="small-muted">
+          Elegant and balanced looks that complement the bride without overpowering.
+        </p>
+        <ul class="small-muted">
+          <li>Natural & HD makeup styles</li>
+          <li>Perfect for group bookings</li>
+          <li>Hairdo & saree draping included</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Groom -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Groom Makeup</h3>
+        <p class="small-muted">
+          Subtle grooming and makeup to keep grooms fresh, confident and camera-ready.
+        </p>
+        <ul class="small-muted">
+          <li>Natural sweat-proof finish</li>
+          <li>Even skin tone correction</li>
+          <li>Hair setting included</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <!-- Puberty Makeup -->
+        <div class="col-lg-6">
+          <div class="catalog-card pre-anim">
+            <h3>Puberty Makeup</h3>
+            <p class="small-muted">
+              Our puberty makeup focuses on a soft, age-appropriate and elegant look,
+              enhancing natural features while keeping the appearance fresh and graceful.
+            </p>
+            <ul class="small-muted">
+              <li>Natural and HD makeup options</li>
+              <li>Lightweight, skin-friendly products</li>
+              <li>Hair styling and draping support included</li>
+              <li>Subtle finish suitable for traditional ceremonies</li>
+            </ul>
+          </div>
+        </div>
+
+    <!-- Baby Shower -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Baby Shower Makeup</h3>
+        <p class="small-muted">
+          Soft, glowing makeup designed for comfort and elegance during maternity
+          celebrations.
+        </p>
+        <ul class="small-muted">
+          <li>Normal & HD makeup options</li>
+          <li>Comfort-first products</li>
+          <li>Hair & saree draping included</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Special Occasion -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Special Occasion Makeup</h3>
+        <p class="small-muted">
+          Engagements, receptions, birthdays, photoshoots and festive events.
+        </p>
+        <ul class="small-muted">
+          <li>Custom look creation</li>
+          <li>Indoor & outdoor friendly makeup</li>
+          <li>Camera-ready finish</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Family -->
+    <div class="col-lg-6">
+      <div class="catalog-card pre-anim">
+        <h3>Family Makeup</h3>
+        <p class="small-muted">
+          Elegant makeup services for mothers, sisters and close family members.
+        </p>
+        <ul class="small-muted">
+          <li>Age-appropriate styling</li>
+          <li>Comfortable & quick sessions</li>
+          <li>Group-friendly bookings</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="container mt-5 pre-anim">
+  <h3>Our Makeup Process</h3>
+  <div class="row g-3 mt-3">
+    <div class="col-md-3"><strong>1. Consultation</strong><p class="small-muted">Understanding your event, outfit & preferences</p></div>
+    <div class="col-md-3"><strong>2. Skin Prep</strong><p class="small-muted">Cleansing, hydration & base correction</p></div>
+    <div class="col-md-3"><strong>3. Makeup & Hair</strong><p class="small-muted">Precision application using premium products</p></div>
+    <div class="col-md-3"><strong>4. Final Touch</strong><p class="small-muted">Finishing, setting & camera check</p></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="container mt-5 pre-anim">
+  <h3>Why Choose Vanitha Bridal Makeover?</h3>
+  <ul class="small-muted mt-3">
+    <li>Experienced bridal specialist</li>
+    <li>Premium & hygienic products</li>
+    <li>Customized looks for every client</li>
+    <li>Transparent pricing</li>
+    <li>On-time, professional service</li>
+  </ul>
+</section>
+
+<!-- FAQ -->
+<section class="container mt-5 pre-anim">
+  <h3>Frequently Asked Questions</h3>
+
+  <div class="accordion mt-3" id="faqAccordion">
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
+          Is trial makeup included?
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse">
+        <div class="accordion-body small-muted">
+          Trial sessions are not included in packages unless mentioned separately.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+          Do you travel to venues?
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse">
+        <div class="accordion-body small-muted">
+          Yes, travel charges apply based on distance and location.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="container mt-5 text-center pre-anim">
+  <h3>Ready to Book Your Look?</h3>
+  <p class="small-muted">
+    Share your event details with us and let’s create something beautiful.
+  </p>
+  <a href="https://wa.me/917200051644" target="_blank" class="btn btn-primary">
+    Enquire via WhatsApp
+  </a>
+</section>
+
+</main>
+
+
+<!-- FOOTER (SAME AS HOME) -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-quote">
+      “Beauty begins the moment you decide to be yourself.”
+    </div>
+
+    <div class="row footer-row">
+      <div class="col-md-4 footer-col">
+        <h5 class="footer-title">Studio Address</h5>
+        <p class="footer-text">
+          383, Mettupalayam Rd,<br>
+          Bharathiyar Nagar,<br>
+          Coimbatore — 641017
+        </p>
+      </div>
+
+      <div class="col-md-4 footer-col">
+        <h5 class="footer-title">Contact</h5>
+        <p class="footer-text">📞 +91 72000 51644</p>
+        <p class="footer-text">✉️vanithabridalmakeover@gmail.com</p>
+      </div>
+
+      <div class="col-md-4 footer-col">
+        <h5 class="footer-title">Follow Us</h5>
+        <div class="footer-social">
+          <a href="https://instagram.com/vanithabridalmakeover" target="_blank" class="footer-social-btn ig-btn">
+            Instagram
+          </a>
+          <a href="https://wa.me/917200051644" target="_blank" class="footer-social-btn wa-btn">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © 2025 Vanitha Bridal Makeover — All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-bar">
+  <a href="https://wa.me/917200051644" target="_blank" class="fab-btn wa" aria-label="WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="">
+  </a>
+
+  <a href="tel:+917200051644" class="fab-btn call" aria-label="Call">
+    <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/svgs/solid/phone.svg" alt="">
+  </a>
+
+  <a href="https://instagram.com/vanithabridalmakeover" target="_blank" class="fab-btn ig" aria-label="Instagram">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="">
+  </a>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+  /* HEADER SCROLL ANIMATION */
+  (function () {
+    let lastScroll = window.pageYOffset || 0;
+    const header = document.querySelector("header");
+
+    if (!header) return;
+
+    header.classList.add("header-show");
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset || 0;
+
+      if (currentScroll > lastScroll && currentScroll > 80) {
+        header.classList.add("header-hide");
+        header.classList.remove("header-show");
+      } else {
+        header.classList.add("header-show");
+        header.classList.remove("header-hide");
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+  })();
+  </script>
+
+  <script>
+  /* FLOATING BAR SCROLL ANIMATION */
+  (function () {
+    let lastScroll = window.pageYOffset || 0;
+    const floatBar = document.querySelector(".float-bar");
+
+    if (!floatBar) return;
+
+    floatBar.classList.add("float-show");
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset || 0;
+
+      if (currentScroll > lastScroll && currentScroll > 120) {
+        floatBar.classList.add("float-hide");
+        floatBar.classList.remove("float-show");
+      } else {
+        floatBar.classList.add("float-show");
+        floatBar.classList.remove("float-hide");
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+  })();
+  </script>
+
+</body>
+</html>

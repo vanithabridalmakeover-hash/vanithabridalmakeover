@@ -1,0 +1,722 @@
+/* ---------------------------------------------------
+   COLOR PALETTE & GLOBAL STYLES
+--------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #d4af37 !important;
+}
+strong {
+  color: #d4af37 !important;
+}
+
+:root {
+  /* Brand */
+  --gold: #d4af37;
+  --gold-soft: #f3e6b3;
+  --pink-accent: #ff4d9a;
+
+  /* Backgrounds */
+  --bg-main: #0b0206;
+  --bg-soft: #1a050d;
+  --bg-muted: #2a0816;
+
+  /* Text (NO GREY) */
+  --text-main: #fff3f8;
+  --text-muted: #ffb6cf;
+  --text-accent: #ff4d9a;
+
+  /* Cards / Glass */
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --glass: rgba(255, 255, 255, 0.06);
+
+  /* Borders & Shadows */
+  --border-gold: rgba(212, 175, 55, 0.35);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+}
+
+
+
+
+html,
+body {
+  background: linear-gradient(
+    180deg,
+    #2a0816 0%,   /* deep wine pink */
+    #12050b 45%,  /* dark rose-black */
+    #000000 100%  /* pure black */
+  );
+}
+
+
+
+
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+img { max-width: 100%; }
+
+/* ---------------------------------------------------
+   INTRO OVERLAY
+--------------------------------------------------- */
+#introOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* MATCHED SITE BACKGROUND */
+  background: linear-gradient(
+    180deg,
+    #2a0816 0%,   /* wine pink */
+    #1a050d 45%,  /* dark rose */
+    #0b0206 100%  /* near black */
+  );
+
+  z-index: 9999;
+}
+
+#introLogo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 100%;
+
+  background: rgba(255,255,255,0.95); /* logo stays clean */
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.6),
+    0 0 35px rgba(212,175,55,0.35);
+}
+
+/* Gold + Pink iris ring */
+#irisRing {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+
+  border: 4px solid rgba(212,175,55,0.55);
+  box-shadow:
+    0 0 25px rgba(212,175,55,0.35),
+    0 0 45px rgba(255,77,154,0.25);
+}
+
+
+
+.price {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 16px auto;
+  .sub {
+    color: #f5ecd2 !important; /* very light gold */
+  }
+
+
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+
+  color: #e8a2b8 !important;            /* rose-gold price */
+}
+
+
+.small-muted {
+  color: #f5ecd2 !important; /* very light gold */
+}
+.sub {
+  color: #f5ecd2 !important; /* very light gold */
+}
+
+
+
+
+/* ---------------------------------------------------
+   HEADER
+--------------------------------------------------- */
+header {
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.brand img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 2px solid var(--border-gold);
+}
+.brand h1 {
+  color: var(--gold-soft);
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+.brand p { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+/* ---------------------------------------------------
+   CONTACT BUTTONS
+--------------------------------------------------- */
+.contact-actions{display:flex;gap:10px;align-items:center;margin-left:auto}
+.contact-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:13px;color:#111;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+.contact-btn.call{background:linear-gradient(135deg,#f9e4a6,var(--gold));color:#111}
+.contact-btn.whatsapp{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff}
+.contact-btn.ig{background:linear-gradient(135deg,var(--pink-accent),#b02b6b);color:#fff}
+
+/* ---------------------------------------------------
+   HERO + FORM CARD
+--------------------------------------------------- */
+.hero {
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow);
+}
+.hero .title {
+  font-size: 32px;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.04);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+}
+
+.form-control,
+.form-select {
+  background-color: #1a050d !important;      /* dark rose background */
+  color: #f5ecd2 !important;                 /* light gold text */
+
+  border: 1px solid rgba(212,175,55,0.45) !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 6px 18px rgba(0,0,0,0.45);
+
+  font-weight: 500;
+}
+
+/* Placeholder – soft light gold */
+.form-control::placeholder {
+  color: #c9a96a !important;
+  opacity: 1;
+}
+
+/* Select placeholder (disabled option) */
+.form-select option[value=""],
+.form-select option:disabled {
+  color: #c9a96a !important;
+}
+
+/* Focus – gold glow */
+.form-control:focus,
+.form-select:focus {
+  background-color: #2a0816 !important;
+  border-color: #d4af37 !important;
+  box-shadow:
+    0 0 0 0.18rem rgba(212,175,55,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+  outline: none !important;
+}
+.mb-2 .form-control,
+.mb-2 .form-select {
+  background-color: #1a050d !important;   /* dark rose */
+  color: #f5ecd2 !important;              /* light gold text */
+
+  border: 1px solid rgba(212,175,55,0.45) !important;
+  border-radius: 10px;
+  padding: 12px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 6px 18px rgba(0,0,0,0.45);
+}
+.mb-2 .form-control::placeholder {
+  color: #c9a96a !important;
+}
+.mb-2 .form-select option:disabled {
+  color: #c9a96a !important;
+}
+
+
+
+//* GOLD SELECT – MUTED / LUXURY */
+.gold-select {
+  background-color: rgba(212,175,55,0.10) !important; /* muted gold bg */
+  color: #f5ecd2 !important;                          /* light gold text */
+  font-weight: 600;
+
+  border: 1px solid rgba(212,175,55,0.55);
+  border-radius: 10px;
+}
+
+/* Dropdown options */
+.gold-select option {
+  background: #1a050d;        /* dark rose menu */
+  color: #f5ecd2;
+}
+
+/* Focus state */
+.gold-select:focus {
+  background-color: rgba(212,175,55,0.15) !important;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 0.18rem rgba(212,175,55,0.25);
+  outline: none;
+}
+
+
+/* SESSION BLOCKS */
+.session-block {
+  background: rgba(255,255,255,0.06);          /* lighter glass */
+  border: 1px solid rgba(212,175,55,0.35);      /* soft gold border */
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+
+  color: #f5ecd2 !important;                    /* light gold text */
+}
+
+/* Force all text inside to be light gold */
+.session-block * {
+  color: #f5ecd2 !important;
+}
+
+/* Add session button – gold */
+#addSessionBtn {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: rgba(212,175,55,0.08);
+  font-weight: 600;
+}
+
+/* Remove session button – soft red but readable */
+.remove-session-btn {
+  border: 1px solid rgba(255,77,77,0.7);
+  color: #ffd6d6;
+  background: rgba(255,77,77,0.08);
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
+
+/* ---------------------------------------------------
+   PACKAGE GRID
+--------------------------------------------------- */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 20px;
+}
+.catalog-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+.catalog-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+}
+.catalog-card h4 { color: var(--gold); }
+
+/* ---------------------------------------------------
+   FLOATING BUTTON BAR
+--------------------------------------------------- */
+/* FABs */
+/* Floating Bar */
+.float-bar{
+  position:fixed;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+  padding:8px 16px;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(10px);
+  border-radius:40px;
+  border:1px solid rgba(255,255,255,0.1);
+  z-index:9999;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Individual Buttons */
+.fab-btn{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  overflow:hidden;
+  transition:0.25s ease;
+}
+
+/* Icons */
+.fab-btn img{
+  width:22px;
+  height:22px;
+  filter:invert(0); /* Default black */
+}
+
+/* Custom BGs */
+.wa{ background:#25D366; }
+.ig{ background:#E4405F; }
+.call{ background:#f3d98a; } /* nice soft gold */
+
+/* Make WhatsApp & Instagram icons white */
+.wa img, .ig img{
+  filter: invert(1);
+}
+
+/* Hover animation */
+.fab-btn:hover{
+  transform:translateY(-4px) scale(1.07);
+  box-shadow:0 8px 26px rgba(0,0,0,0.45);
+}
+
+/* ---------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------- */
+.pre-anim { opacity: 0; transform: translateY(24px); }
+
+/* ---------------------------------------------------
+   MOBILE RESPONSIVE
+--------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero .title { font-size: 24px; }
+  .form-control, .form-select { font-size: 14px; }
+  .catalog-card h4 { font-size: 16px; }
+}
+
+.catalog-img {
+width: 100%;
+height: 250px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 12px;
+border: 1px solid rgba(255,255,255,0.07);
+box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+.hero-side-img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  max-height: 360px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.notes-highlight {
+  padding: 22px;
+}
+
+.highlight-box {
+  margin-top: 12px;
+  padding: 14px;
+  background: rgba(212, 175, 55, 0.10); /* soft gold tint */
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+}
+
+.highlight-box p {
+  margin: 0 0 6px;
+  color: var(--text-main);
+}
+
+
+
+
+
+/* =====================
+   FOOTER SECTION
+   ===================== */
+.footer-section {
+  background: #0c0c0d;
+  padding: 50px 0 30px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 60px;
+}
+
+.footer-quote {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--gold-soft);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.footer-col {
+  padding: 10px;
+}
+
+.footer-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  color: rgba(240,240,240,0.85);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Big Buttons */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 85%;
+  justify-content: center;
+  font-size: 15px;
+  padding: 12px 16px;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.footer-social-btn img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+/* Instagram = Pink Gradient */
+.ig-btn {
+  background: linear-gradient(135deg, #ff4d9a, #b02b6b);
+}
+
+/* WhatsApp = Green */
+.wa-btn {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 30px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-quote {
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+/* FORCE HEADER SLIDE BEHAVIOR */
+header {
+  transition: transform 0.35s ease !important;
+  will-change: transform;
+}
+
+/* hide */
+header.header-hide {
+  transform: translateY(-110%) !important;
+}
+
+/* show */
+header.header-show {
+  transform: translateY(0) !important;
+}
+
+
+
+
+
+
+
+
+/* FLOAT BAR SCROLL EFFECT */
+.float-bar {
+  transition: transform 0.35s ease, opacity 0.35s ease !important;
+  will-change: transform, opacity;
+}
+
+/* hide bar */
+.float-bar.float-hide {
+  transform: translate(-50%, 120%) scale(0.9) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* show bar */
+.float-bar.float-show {
+  transform: translate(-50%, 0) scale(1) !important;
+  opacity: 1 !important;
+}
+
+
+
+/* ===== MOBILE HEADER: RIGHT-SIDE TOGGLER, NO OVERLAP ===== */
+@media (max-width: 991.98px) {
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Brand stays left but can shrink */
+  header .brand {
+    flex: 1;
+    min-width: 0; /* VERY IMPORTANT */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Hide address line */
+  header .brand .muted-sm {
+    display: none;
+  }
+
+  /* Prevent title from colliding */
+  header .brand h1 {
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Navbar always on right */
+  .luxury-nav {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  /* Toggler alignment */
+  .navbar-toggler {
+    padding: 6px 10px;
+  }
+
+}
+header .brand h1 {
+  white-space: normal;
+}
+
+
+
+/* =====================
+   FAQ ACCORDION – LUXURY THEME
+   ===================== */
+
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: rgba(212,175,55,0.35);
+}
+
+/* Accordion item */
+.accordion-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+/* Header button */
+.accordion-button {
+  background: rgba(0,0,0,0.35) !important;
+  color: #d4af37 !important;              /* gold question */
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 14px 18px;
+  box-shadow: none !important;
+}
+
+/* Remove default Bootstrap arrow color */
+.accordion-button::after {
+  filter: invert(1) sepia(1) saturate(4) hue-rotate(15deg);
+}
+
+/* Hover */
+.accordion-button:hover {
+  background: rgba(0,0,0,0.45) !important;
+}
+
+/* Active / open state */
+.accordion-button:not(.collapsed) {
+  background: rgba(0,0,0,0.55) !important;
+  color: #f5d77a !important;
+  box-shadow: inset 0 -1px 0 rgba(212,175,55,0.25);
+}
+
+/* Body */
+.accordion-body {
+  background: rgba(255,255,255,0.04);
+  color: #f5ecd2 !important;              /* light gold text */
+  padding: 16px 18px;
+  line-height: 1.6;
+}
+
+/* Small muted text inside accordion */
+.accordion-body.small-muted {
+  color: #f5ecd2 !important;
+}
+
+/* Remove focus outline */
+.accordion-button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}

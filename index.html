@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vanitha Bridal Makeover</title>
+  <meta name="description" content="Vanitha Bridal Makeover — Bridal, Bridesmaid, Groom & Special Occasion makeovers. Book via WhatsApp.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP (core + ScrollTrigger) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+/* WhatsApp Catalogue Click */
+.whatsapp-catalog {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Black + Gold CTA */
+.catalog-cta {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 0.95rem;
+
+  background: #0b0b0b;
+  color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.45);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover Luxury Effect */
+.whatsapp-catalog:hover .catalog-cta {
+  background: linear-gradient(135deg,#0b0b0b,#151515,#1f1f1f);
+  color: #f5d77a;
+  box-shadow: 0 14px 40px rgba(212,175,55,0.28);
+  transform: translateY(-2px) scale(1.03);
+}
+
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.catalog-cta {
+  margin-top: auto;   /* MAGIC LINE */
+}
+
+/* Force simple 4 / 8 split without changing HTML */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex: 1 !important;
+}
+
+/* Logo = 4 parts */
+.brand img {
+  flex: 0 0 33.333% !important;
+  max-width: 70px !important;
+}
+
+/* Text = 8 parts */
+.brand > div {
+  flex: 0 0 66.666% !important;
+}
+
+
+/* ===== LUXURY BOOTSTRAP NAV ===== */
+.luxury-nav .nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  padding: 6px 0;
+}
+
+.luxury-nav .nav-link:hover {
+  color: #d4af37;
+}
+
+/* Active page */
+.luxury-nav .nav-link.active {
+  color: #f5d77a;
+  font-weight: 600;
+  position: relative;
+}
+
+.luxury-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: #d4af37;
+}
+
+/* Contact pill */
+.luxury-nav .nav-contact {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.45);
+  color: #d4af37 !important;
+}
+
+/* Toggler styling */
+.navbar-toggler {
+  border: 1px solid rgba(212,175,55,0.5);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+</style>
+
+
+
+
+<body>
+
+  <!-- INTRO OVERLAY: Blocks the page until animation finishes -->
+  <div id="introOverlay" role="presentation" aria-hidden="true">
+    <div id="irisRing" aria-hidden="true"></div>
+    <img id="introLogo" src="images/logo.png" alt="Vanitha Bridal Makeover logo" />
+  </div>
+
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center">
+    <div class="brand">
+      <img src="images/logo.png" alt="Vanitha Logo" id="siteLogo">
+      <div>
+        <h1>Vanitha Bridal Makeover</h1>
+        <p class="muted-sm">383, Mettupalayam Rd, Bharathiyar Nagar · Coimbatore · +91 72000 51644</p>
+      </div>
+    </div>
+
+    <!-- <div class="contact-actions">
+         <a class="contact-btn call d-none d-md-inline-flex" href="tel:+917200051644" aria-label="Call +91 72000 51644">
+           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.06.424.22.83.47 1.19l.92 1.2a1 1 0 0 1-.2 1.3l-1 1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.87.3 2.03.75 2.81 1.02z" stroke="#111" stroke-width="1.2"></path></svg>
+           Call
+         </a>
+
+         <a class="contact-btn whatsapp d-none d-md-inline-flex" href="https://wa.me/917200051644" target="_blank" rel="noopener" aria-label="WhatsApp">
+           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.51 2 2 6.49 2 12.02c0 2.12.61 4.09 1.67 5.77L2 22l4.45-1.38A9.98 9.98 0 0 0 12.04 22c5.53 0 10.04-4.49 10.04-9.98C22.08 6.49 17.57 2 12.04 2zM16.57 15.05c-.24.68-1.4 1.28-2.18 1.36-.6.07-1.05.12-2.07-.12-2.42-.56-4.03-3.07-4.14-3.23-.11-.15-.9-1.22-.9-2.33 0-1.1.94-1.6 1.26-1.6.33 0 .72.02 1.03.35.32.33.45.62.63 1.04.18.41.64 1.36.7 1.46.06.1.1.2.02.32-.09.13-.15.28-.32.42-.16.14-.37.3-.53.46-.17.16-.35.33-.15.63.2.31 1.14 1.83 2.47 2.88 1.71 1.42 2.73 1.69 3.33 1.88.6.19 1.08.16 1.48.1.4-.07 1.28-.52 1.46-1.02.18-.5.18-.93.13-1.02-.05-.09-.18-.14-.45-.26-.27-.12-1.6-.79-1.86-.88-.25-.09-.43-.13-.56.13z"/></svg>
+           WhatsApp
+         </a>
+
+         <a class="contact-btn ig d-none d-md-inline-flex" href="https://instagram.com/vanithabridalmakeover" target="_blank" rel="noopener" aria-label="Instagram">
+           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6zm5.2-.9a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"/></svg>
+           Instagram
+         </a>
+       </div> -->
+
+
+       <nav class="navbar navbar-expand-lg luxury-nav">
+  <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainNav">
+    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="services.html">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about-us.html">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="gallery.html">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-contact" href="contact-us.html">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero pre-anim container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+    <div class="title">Exquisite Bridal Artistry — Camera-ready, Timeless Beauty</div>
+    <p class="small-muted d-lg-none mt-2">
+  Coimbatore · +91 72000 51644
+</p>
+
+    <div class="sub">
+      Cinematic HD Bridal, Airbrush & event makeovers. Packages for brides, bridesmaids,
+      grooms and special occasions. Trial sessions available on request.
+    </div>
+
+    <!-- BEAUTY HERO IMAGE -->
+    <div class="hero-image-wrapper mt-3">
+      <img src="images/0.png" alt="Bridal Makeup Showcase" class="hero-side-img">
+    </div>
+  </div>
+
+
+        <!-- Top booking form: MULTI-SESSION -->
+        <div class="col-lg-4">
+          <div class="contact-card">
+            <form id="makeupForm">
+              <div class="row g-2">
+
+                <!-- Basic contact details -->
+                <div class="col-12">
+                  <input id="name" class="form-control" placeholder="Name" required>
+                </div>
+
+                <div class="col-12">
+                  <input id="phone" class="form-control" placeholder="Phone Number" inputmode="tel" required>
+                </div>
+
+                <div class="col-12">
+                  <input
+                    id="eventDate"
+                    type="date"
+                    class="form-control"
+                    required
+                    onclick="this.showPicker && this.showPicker()">
+                </div>
+
+
+
+                <div class="col-12">
+                  <input id="venue" class="form-control" placeholder="Venue (optional)">
+                </div>
+
+                <!-- Sessions container (JS will clone session blocks into here) -->
+                <div id="sessionsContainer" class="col-12">
+                  <!-- SESSION BLOCK (visible by default) -->
+                  <div class="session-block" data-index="1" style="margin-bottom:12px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <strong>Session 1</strong>
+                      <!-- remove button hidden for session 1 (JS will hide/show appropriately) -->
+                      <button type="button" class="btn btn-sm btn-outline-light remove-session-btn d-none" aria-label="Remove session">Remove</button>
+                    </div>
+
+                    <div class="mb-2">
+                      <label class="form-label small-muted">Category</label>
+                      <select name="category[]" class="form-select gold-select category-select" required>
+                        <option value="">Select Category</option>
+                        <option value="Bridal">Bridal</option>
+                        <option value="Groom">Groom</option>
+                        <option value="Bridesmaid">Bridesmaid</option>
+                        <option value="Family Makeup">Family Makeup</option>
+                        <option value="Special Occasions">Special Occasions</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-2">
+                      <label class="form-label small-muted">Function</label>
+                      <select name="function[]" class="form-select gold-select function-select" required>
+                        <option value="">Select Function</option>
+                        <!-- Function options will be populated by JS when category changes,
+                             but include common bridal functions for progressive enhancement -->
+                        <option value="Muhurtham">Muhurtham</option>
+                        <option value="Reception">Reception</option>
+                        <option value="Sangeeth">Sangeeth</option>
+                        <option value="Haldi">Haldi</option>
+                        <option value="Seer / Henna Ceremony">Seer / Henna Ceremony</option>
+                        <option value="Engagement">Engagement</option>
+                        <option value="Photoshoot">Photoshoot</option>
+                        <option value="Post-Wedding Shoot">Post-Wedding Shoot</option>
+                        <option value="Baby Shower">Baby Shower</option>
+                        <option value="Puberty Function">Puberty Function</option>
+                        <option value="Birthday Celebration">Birthday Celebration</option>
+                        <option value="Other Function">Other Function</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-2">
+                      <label class="form-label small-muted">Makeup Type</label>
+                      <select name="package[]" class="form-select gold-select package-select" required>
+                        <option value="">Select Makeup Type</option>
+                        <option value="HD Premium">HD Premium</option>
+                        <option value="Soft Glam">Soft Glam</option>
+                        <option value="Ultra HD">Ultra HD</option>
+                        <option value="Airbrush Makeup">Airbrush Makeup</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <!-- end default session block -->
+                </div>
+                <!-- end sessionsContainer -->
+
+                <div class="col-12 d-grid gap-2">
+                  <button id="addSessionBtn" type="button" class="btn btn-outline-light">
+                    + Add another function / session
+                  </button>
+                </div>
+
+                <!-- submit -->
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100 send-btn">
+                    Send Enquiry via WhatsApp
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- end form column -->
+
+      </div>
+    </section>
+
+    <!-- Packages (kept from your existing site) -->
+    <section class="container mt-4" id="packages">
+      <h3>Package Catalogue</h3>
+      <p class="small-muted">Per session pricing. Travelling, jewels and extra saree draping are additional. Trials not included unless mentioned.</p>
+
+      <div class="catalog-grid">
+        <div class="catalog-card pre-anim whatsapp-catalog whatsapp-catalog"
+       data-title="Bridal — HD Premium"
+       data-price="₹15,000"
+       data-items="Makeup, Hairdo, Saree drape, Lens & lashes, Hair extensions, Safety pins, Flowers">
+
+    <h4>Bridal — HD Premium</h4>
+    <!-- <img src="images/3.png" alt="Bridal — HD Premium" class="catalog-img"> -->
+    <div class="price">₹15,000</div>
+
+    <ul class="small-muted">
+      <li>Makeup</li>
+      <li>Hairdo</li>
+      <li>Saree drape</li>
+      <li>Lens and lashes</li>
+      <li>Hair extensions</li>
+      <li>Safety pins and hair pins</li>
+      <li>Flowers</li>
+    </ul>
+
+    <div class="catalog-cta">Enquire Now</div>
+  </div>
+
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Bridal — Soft Glam</h4>
+            <!-- <img src="images/2.png" alt="Bridal — Soft Glam" class="catalog-img"> -->
+          <div class="price">₹17,500</div>
+          <ul class="small-muted">
+            <li>Makeup (Sweat & Water Proof)</li>
+            <li>Hairdo</li>
+            <li>Saree drape</li>
+            <li>Lens and lashes</li>
+            <li>Hair extensions</li>
+            <li>Safety pins and hair pins</li>
+            <li>Flowers</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Bridal — Ultra HD</h4>
+            <!-- <img src="images/4.png" alt="Bridal — Ultra HD" class="catalog-img"> -->
+          <div class="price">₹20,000</div>
+          <ul class="small-muted">
+            <li>Makeup (Sweat & Water Proof)</li>
+            <li>Hairdo</li>
+            <li>Saree drape</li>
+            <li>Lens and lashes</li>
+            <li>Hair extensions</li>
+            <li>Safety pins and hair pins</li>
+            <li>Flowers</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Airbrush Makeup</h4>
+          <!-- <img src="images/5.png" alt="Airbrush Makeup" class="catalog-img"> -->
+
+          <div class="price">₹25,000</div>
+          <ul class="small-muted">
+            <li>Makeup</li>
+            <li>Hairdo</li>
+            <li>Saree drape</li>
+            <li>Lens and lashes</li>
+            <li>Hair extensions</li>
+            <li>Safety pins and hair pins</li>
+            <li>Flowers</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+    <h4>Bridesmaid — Basic Makeup</h4>
+      <!-- <img src="images/1.png" alt="Bridesmaid Basic Makeup" class="catalog-img"> -->
+
+
+      <div class="price">₹6,000</div>
+
+      <ul class="small-muted">
+        <li>Makeup</li>
+        <li>Hairdo</li>
+        <li>Saree drape</li>
+        <li>Hair extensions</li>
+        <li>Safety pins and hair pins</li>
+      </ul>
+          <div class="catalog-cta">Enquire Now</div>
+
+    </div>
+
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Bridesmaid — Natural Makeup</h4>
+                <!-- <img src="images/6.png" alt="Bridesmaid — Natural Makeup" class="catalog-img"> -->
+          <div class="price">₹10,000</div>
+          <ul class="small-muted">
+            <li>Makeup</li>
+            <li>Hairdo</li>
+            <li>Saree drape</li>
+            <li>Lens and lashes</li>
+            <li>Hair extensions</li>
+            <li>Safety pins and hair pins</li>
+            <li>Flowers</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Groom Package - Normal Makeup</h4>
+              <!-- <img src="images/9.png" alt="Groom Packages" class="catalog-img"> -->
+          <div class="price">₹5,000</div>
+          <ul class="small-muted">
+            <li>Makeup (Sweat & Water Proof)</li>
+            <li>Hair Set</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Baby Shower (Normal Makeup)</h4>
+          <!-- <img src="images/8.png" alt="Baby Shower(HD Makeup)" class="catalog-img"> -->
+          <div class="price">₹10,000</div>
+          <ul class="small-muted">
+            <li>Makeup</li>
+            <li>Hairdo</li>
+            <li>Saree drape</li>
+            <li>Lens and lashes</li>
+            <li>Hair extensions</li>
+            <li>Safety pins and hair pins</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+        <div class="catalog-card pre-anim whatsapp-catalog">
+          <h4>Baby Shower (HD Makeup)</h4>
+            <!-- <img src="images/7.png" alt="Baby Shower(HD Makeup)" class="catalog-img"> -->
+          <div class="price">₹12,500</div>
+          <ul class="small-muted">
+            <li>Makeup</li>
+            <li>Hairdo</li>
+            <li>Saree drape</li>
+            <li>Lens and lashes</li>
+            <li>Hair extensions</li>
+            <li>Safety pins and hair pins</li>
+          </ul>
+              <div class="catalog-cta">Enquire Now</div>
+        </div>
+
+      </div>
+      <br>
+      <div class="catalog-card notes-highlight pre-anim">
+        <h4>Important Notes</h4>
+        <div class="highlight-box">
+          <p>Packages are per session</p>
+          <p>Travelling charges extra</p>
+          <p>Jewels extra</p>
+          <p>Extra saree draping charge extra</p>
+          <p>Trial is not included in packages</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-section">
+    <div class="container">
+
+      <!-- QUOTE -->
+      <div class="footer-quote">
+        “Every bride deserves to feel like poetry — timeless, elegant, unforgettable.”
+      </div>
+
+      <div class="row footer-row">
+
+        <!-- COLUMN 1: ADDRESS -->
+        <div class="col-md-4 footer-col">
+          <h5 class="footer-title">Studio Address</h5>
+          <p class="footer-text">
+            383, Mettupalayam Rd,<br>
+            Bharathiyar Nagar,<br>
+            Coimbatore — 641017
+          </p>
+        </div>
+
+        <!-- COLUMN 2: CONTACT -->
+        <div class="col-md-4 footer-col">
+          <h5 class="footer-title">Contact</h5>
+          <p class="footer-text">📞 +91 72000 51644</p>
+          <p class="footer-text">✉️vanithabridalmakeover@gmail.com</p>
+        </div>
+
+        <!-- COLUMN 3: SOCIAL -->
+        <div class="col-md-4 footer-col">
+          <h5 class="footer-title">Follow Us</h5>
+
+          <div class="footer-social">
+            <a href="https://instagram.com/vanithabridalmakeover" target="_blank" class="footer-social-btn ig-btn">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="">
+              Instagram
+            </a>
+
+            <a href="https://wa.me/917200051644" target="_blank" class="footer-social-btn wa-btn">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="">
+              WhatsApp
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="footer-copy">© 2025 Vanitha Bridal Makeover — All Rights Reserved</div>
+
+    </div>
+  </footer>
+
+
+  <!-- Floating Contact Buttons -->
+  <div class="float-bar">
+     <a href="https://wa.me/917200051644" target="_blank" class="fab-btn wa" aria-label="WhatsApp">
+       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="">
+     </a>
+
+     <a href="tel:+917200051644" class="fab-btn call" aria-label="Call">
+     <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/svgs/solid/phone.svg" alt="">
+   </a>
+
+
+     <a href="https://instagram.com/vanithabridalmakeover" target="_blank" class="fab-btn ig" aria-label="Instagram">
+       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="">
+     </a>
+   </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Site JS (multi-session + gsap) -->
+  <script src="script.js"></script>
+
+  <script>
+  (function () {
+    let lastScroll = window.pageYOffset || 0;
+    const header = document.querySelector("header");
+
+    if (!header) return;
+
+    // show header initially
+    header.classList.add("header-show");
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset || 0;
+
+      if (currentScroll > lastScroll && currentScroll > 80) {
+        // scrolling DOWN → hide header
+        header.classList.add("header-hide");
+        header.classList.remove("header-show");
+      } else {
+        // scrolling UP → show header
+        header.classList.add("header-show");
+        header.classList.remove("header-hide");
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+  })();
+  </script>
+
+
+
+  <script>
+  (function () {
+    let lastScroll = window.pageYOffset || 0;
+    const floatBar = document.querySelector(".float-bar");
+
+    if (!floatBar) return;
+
+    // show initially
+    floatBar.classList.add("float-show");
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset || 0;
+
+      if (currentScroll > lastScroll && currentScroll > 120) {
+        // scrolling down → hide
+        floatBar.classList.add("float-hide");
+        floatBar.classList.remove("float-show");
+      } else {
+        // scrolling up → show
+        floatBar.classList.add("float-show");
+        floatBar.classList.remove("float-hide");
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+  })();
+  </script>
+
+
+
+  <script>
+  (function () {
+    const WHATSAPP_NUMBER = "917200051644";
+
+    document.querySelectorAll(".whatsapp-catalog").forEach(card => {
+      card.addEventListener("click", () => {
+
+        const title = card.querySelector("h4")?.innerText.trim() || "Package";
+        const price = card.querySelector(".price")?.innerText.trim() || "";
+
+        const items = Array.from(card.querySelectorAll("ul li"))
+          .map(li => li.innerText.trim())
+          .filter(Boolean);
+
+        const message =
+  `Vanitha Bridal Makeover - Package Enquiry
+
+  Selected Package:
+  • ${title}
+  ${price ? `• Price: ${price}` : ""}
+
+  Includes:
+  • ${items.join("\n• ")}
+
+  Please share availability & details.
+  Thank you!`;
+
+        const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+        window.open(url, "_blank");
+      });
+    });
+  })();
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const dateInput = document.getElementById("eventDate");
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+
+  dateInput.min = `${yyyy}-${mm}-${dd}`;
+});
+
+  </script>
+
+
+
+
+
+
+</body>
+</html>
