@@ -247,23 +247,42 @@
                   <input id="phone" class="form-control" placeholder="Phone Number" inputmode="tel" required>
                 </div>
 
-                <div class="col-12">
-                 <input
-  id="eventDate"
-  type="date"
-  class="form-control"
-  required
-  onclick="this.showPicker && this.showPicker()"
-  style="
-    background-color: rgba(255,255,255,0.06);
-    color: #bbb;
-    border: 1px solid rgba(255,255,255,0.25);
-  "
-  onfocus="this.style.color='#fff'"
-  onchange="this.style.color='#fff'"
->
+           <div class="col-12" style="position:relative;">
+  
+  <!-- Fake placeholder -->
+  <span
+    id="eventDateLabel"
+    style="
+      position:absolute;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#d6b77c;
+      font-size:14px;
+      pointer-events:none;
+      transition:0.2s ease;
+    "
+  >
+    Event Date
+  </span>
 
-                </div>
+  <input
+    id="eventDate"
+    type="date"
+    class="form-control"
+    required
+    onclick="this.showPicker && this.showPicker()"
+    style="
+      background-color: rgba(255,255,255,0.06);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.25);
+    "
+    onfocus="document.getElementById('eventDateLabel').style.display='none'"
+    onchange="document.getElementById('eventDateLabel').style.display='none'"
+  >
+
+</div>
+
 
 
 
@@ -714,4 +733,5 @@
 
 </body>
 </html>
+
 
