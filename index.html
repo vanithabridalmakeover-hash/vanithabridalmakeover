@@ -248,12 +248,21 @@
                 </div>
 
                 <div class="col-12">
-                  <input
-                    id="eventDate"
-                    type="date"
-                    class="form-control"
-                    required
-                    onclick="this.showPicker && this.showPicker()">
+                 <input
+  id="eventDate"
+  type="date"
+  class="form-control"
+  required
+  onclick="this.showPicker && this.showPicker()"
+  style="
+    background-color: rgba(255,255,255,0.06);
+    color: #bbb;
+    border: 1px solid rgba(255,255,255,0.25);
+  "
+  onfocus="this.style.color='#fff'"
+  onchange="this.style.color='#fff'"
+>
+
                 </div>
 
 
@@ -705,3 +714,4 @@
 
 </body>
 </html>
+
