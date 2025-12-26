@@ -257,7 +257,13 @@ header {
 .mb-2 .form-select option:disabled {
   color: #c9a96a !important;
 }
-
+/* new */
+/* iOS-safe fix for date input */
+input[type="date"].form-control {
+  background-color: #ffffff !important;   /* light bg */
+  color: #1a050d !important;              /* dark text */
+  border: 1px solid rgba(212,175,55,0.6) !important;
+}
 
 
 //* GOLD SELECT – MUTED / LUXURY */
@@ -720,3 +726,4 @@ header .brand h1 {
   box-shadow: none !important;
   outline: none !important;
 }
+
